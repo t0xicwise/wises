@@ -1,7 +1,3 @@
-Paste2
-Create Paste
-Followup Paste
-QR
 const Discord = require('discord.js');
 
 const Util = require('discord.js');
@@ -35,7 +31,7 @@ const gif = require("gif-search");
 const client = new Discord.Client({disableEveryone: true});
 
 
-const prefix = "#";
+const prefix = "*";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -75,7 +71,7 @@ client.on("guildMemberAdd", member => {
 
 client.on('message', message => {
 
-    var prefix = "?";
+    var prefix = "*";
           if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
@@ -119,7 +115,3 @@ msg.delete();
 });
 
 client.login(process.env.BOT_TOKEN);
-
-
-© 2006 - 2018 Paste2.org.
-Follow paste2.org on Twitter
