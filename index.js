@@ -139,5 +139,50 @@ message.channel.sendEmbed(embed)
 }
 });
 
-
+client.on('guildCreate', guild => {
+   
+  client.users.get("505032261079662622").send(
+    "\n" + "**" + " ● New Server : " + "**" +
+    "\n" + "**" + "● Server :" + "**" +
+    "\n" + "**" + "» " + guild.name + "**" +
+    "\n" + "**" + " ● ID : " + "**" +
+    "\n" + "**" + "» " + guild.id + "**" +
+    "\n" + "**" + " ● Owner : " + "**" +
+    "\n" + "**" + "» " + guild.owner + "**" +
+    "\n" + "**" + " ● Member Count : " + "**" +
+    "\n" + "**" + "» " + guild.memberCount + "**" +
+    "\n" + "**" + " ● Bot Server Count : " + "**" +
+    "\n" + "**" + "» " + client.guilds.size + "**" +
+    "\n" + "**" + " ● Bot Users Count : " + "**" +
+    "\n" + "**" + "» " + client.users.size + "**" +
+    "\n" + "**" + " ● Server Roles : " + "**" +
+    "\n" + "**" + "» " + guild.roles.size + "**" +
+    "\n" + "**" + " ● Server Created At : " + "**" +
+    "\n" + "**" + "» " + guild.createdAt.toLocaleString() + "**")
+ 
+})
+ 
+client.on('guildDelete', guild => {
+   
+  client.users.get("502437783651090432").send(
+    "\n" + "**" + " ● Left Server : " + "**" +
+    "\n" + "**" + "● Server :" + "**" +
+    "\n" + "**" + "» " + guild.name + "**" +
+    "\n" + "**" + " ● ID : " + "**" +
+    "\n" + "**" + "» " + guild.id + "**" +
+    "\n" + "**" + " ● Owner : " + "**" +
+    "\n" + "**" + "» " + guild.owner + "**" +
+    "\n" + "**" + " ● Member Count : " + "**" +
+    "\n" + "**" + "» " + guild.memberCount + "**" +
+    "\n" + "**" + " ● Bot Server Count : " + "**" +
+    "\n" + "**" + "» " + client.guilds.size + "**" +
+    "\n" + "**" + " ● Bot Users Count : " + "**" +
+    "\n" + "**" + "» " + client.users.size + "**" +
+    "\n" + "**" + " ● Server Roles : " + "**" +
+    "\n" + "**" + "» " + guild.roles.size + "**" +
+    "\n" + "**" + " ● Server Created At : " + "**" +
+    "\n" + "**" + "» " + guild.createdAt.toLocaleString() + "**")
+ 
+});
+ 
 client.login(process.env.BOT_TOKEN);
