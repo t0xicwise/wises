@@ -534,65 +534,6 @@ client.on("message", message => {
       }
   });
 
-client.on('message', message => {
-    if (message.content.startsWith("*avatar")) {  //// الامر و البرفيكس
-        if (message.author.bot) return
-        var mentionned = message.mentions.users.first();
-    var omar;
-      if(mentionned){
-          var omar = mentionned;
-      } else {
-          var omar = message.author;
-          
-      }
-        const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setAuthor('Avatar Link :')
-        .setTitle('Click Here')
-        .setURL(`${omar.avatarURL}`)
-        .setImage(`${omar.avatarURL}`)
-        .setFooter('KilS CommunitY ',client.user.avatarURL) 
-      message.channel.sendEmbed(embed);
-    }
-});
-
-var prefix = "*"
-client.on('message', message => {
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0]; //حقوق الفا
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);//حقوق الفا
-
-  if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");//حقوق الفا
-  
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
-//حقوق الفا
-  message.guild.member(user).ban(7, user);
-//حقوق الفا
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({//حقوق الفا
-    embed : banembed
-  })
-}
-});
 
 
 client.login(process.env.BOT_TOKEN);
